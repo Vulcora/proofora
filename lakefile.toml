@@ -1,0 +1,17 @@
+name = "proofora"
+version = "0.1.0"
+keywords = ["math"]
+defaultTargets = ["Proofora"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+weak.linter.mathlibStandardSet = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.32.0"
+
+[[lean_lib]]
+name = "Proofora"
