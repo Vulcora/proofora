@@ -17,11 +17,15 @@
       Lean's decision procedure plays the refuter's role: it FINDS the counterexample.
       Sound, fast, and NOT a proof of anything universal.
     • Tier C (certify) — TRUE ∀-theorems about the shipped EXCISE / register-lock
-      operator, left as `sorry`. These are the challenge targets: replace a `sorry`
-      with a real proof. The checker (`scripts/check_cert.sh`) accepts iff the module
-      builds, `#print axioms <target>` reports only the standard axioms (no `sorryAx`,
-      no `native_decide`, no freshly-declared `axiom`), the sealed statement is
-      unmodified, and no shadowing/escape construct was introduced.
+      operator, originally left as `sorry` — the challenge targets. The checker
+      (`scripts/check_cert.sh`) accepts iff the module builds, `#print axioms <target>`
+      reports only the standard axioms (no `sorryAx`, no `native_decide`, no
+      freshly-declared `axiom`), the sealed statement is unmodified, and no
+      shadowing/escape construct was introduced.
+      CROSSED 2026-07-22 by Justin Garringer (github.com/CarlSR9001): all three
+      targets proved in one submission — checker VERDICT: ACCEPT, receipt
+      sha256:fa72179a3011aae6fadc5bda8dea66ee71807a2fc8682afab3a520a8c09c44fc,
+      axioms = [propext, Classical.choice, Quot.sound] only. See CHALLENGE.md.
     • The bridge — the k = 1 case is ALREADY crossed in `Proofora/Excise.lean`:
       SalienceLean's `charge_computable_of_rowspace` is re-cast there as
       `rank_one_erases_only_span` ("a rank-1 witness is not a lock"). The targets

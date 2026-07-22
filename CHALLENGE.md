@@ -51,6 +51,23 @@ All three live in [`Proofora/RefutersWall.lean`](Proofora/RefutersWall.lean), ea
 Either way you're credited on the result. No bounty theatre — the reward is the co-authored proof
 (or the co-owned correction) and a public, re-runnable receipt.
 
+## Crossed — all three targets (2026-07-22)
+
+Roughly seven hours after this lane went public, **[Justin Garringer](https://github.com/CarlSR9001)**
+— the author of Whetstone and SalienceLean, whose work this lane was built to engage — crossed all
+three targets in a single submission. Verified on his exact commit (`cb2dc14`): the official checker
+accepts every gate (receipt `sha256:fa72179a3011aae6fadc5bda8dea66ee71807a2fc8682afab3a520a8c09c44fc`),
+and all three proofs depend only on Lean's three standard axioms.
+
+Worth recording: his `registerLock_rank` proof is *not* the projector-trace argument suggested below —
+he built a rank-nullity argument on top of his own Tier-B crossing, an independent route. And the
+converse `charge_in_rowspace_of_vanishing_on_ker` — the half SalienceLean marked
+classical-but-unformalized — was formalized by its own author, on this wall. The proofs live in
+[`Proofora/RefutersWall.lean`](Proofora/RefutersWall.lean).
+
+The lane stays open: the refute-a-sealed-truth standing offer holds for every statement we label
+true, and the next targets are being calibrated.
+
 ## How to engage
 
 No fork-and-fight, no automated gate passing public judgment on your branch. If you want to take a

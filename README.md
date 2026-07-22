@@ -27,6 +27,12 @@ They make no claim about any detector.
 
 An open, machine-checked challenge lane. See [`CHALLENGE.md`](CHALLENGE.md).
 
+**Crossed (2026-07-22):** all three targets were proved by
+[Justin Garringer](https://github.com/CarlSR9001) (Whetstone, SalienceLean) about seven hours
+after the lane opened — checker-verified on his commit, standard axioms only
+(receipt `sha256:fa72179a3011aae6fadc5bda8dea66ee71807a2fc8682afab3a520a8c09c44fc`).
+The record, including his independent proof routes, is in [`CHALLENGE.md`](CHALLENGE.md).
+
 ## `whetstone-pair/` — a reproducible model pair for a promotion gate
 
 A genuine baseline/candidate pair for a promotion gate: `google/gemma-2-2b-it` (v1) vs the
