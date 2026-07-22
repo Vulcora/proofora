@@ -1,1 +1,10 @@
 /.lake
+
+# whetstone-pair reproduction outputs (never commit large models or a local harmful bank)
+whetstone-pair/__pycache__/
+whetstone-pair/*.repro.json
+whetstone-pair/candidate/
+whetstone-pair/candidate_adapter/
+whetstone-pair/gemma-2-2b-it-base/
+whetstone-pair/safety_prompts.local.json
+*.pyc

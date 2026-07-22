@@ -23,6 +23,22 @@ The `charge`-in-rowspace primitive is adapted from
 Scope: these certify linear algebra (erasure projectors, row-space membership).
 They make no claim about any detector.
 
+## `Proofora/RefutersWall.lean` — the Refuter's Wall challenge
+
+An open, machine-checked challenge lane. See [`CHALLENGE.md`](CHALLENGE.md).
+
+## `whetstone-pair/` — a reproducible model pair for a promotion gate
+
+A genuine baseline/candidate pair for a promotion gate: `google/gemma-2-2b-it` (v1) vs the
+same model LoRA-fine-tuned on `CodeAlpaca-20k` (v2). The fine-tune makes v2 a more willing
+assistant — its **headline** helpfulness goes up (+0.35: it stops over-refusing benign requests) —
+while it silently **trades away a guarded ability**: safety refusals erode (−0.36 on a held-out
+harmful set the base refused entirely). The documented alignment-tax / catastrophic-forgetting case
+(Qi et al., 2023) — no backdoor, no trap — exactly the "scored better, quietly regressed" promotion a
+gate exists to **BLOCK**. Deterministic recipe (`train_candidate.py`) + item-level eval
+(`gate_eval_result.json`, booleans + labels only — no completions). See
+[`whetstone-pair/README.md`](whetstone-pair/README.md).
+
 ## Build
 
 ```sh
