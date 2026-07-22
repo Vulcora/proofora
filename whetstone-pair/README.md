@@ -99,3 +99,32 @@ your gate and reproduce the verdict.
 
 Hope this is useful. It's a clean, real specimen of the alignment-tax / catastrophic-forgetting
 case, and Whetstone catches it the way it's supposed to.
+
+---
+
+## Replay record — Whetstone ran the gate (2026-07-22)
+
+Justin Garringer's Whetstone replayed all 113 supplied item-level rows through its strict
+paired promotion gate and returned **BLOCK**:
+
+- **10 gains, 20 regressions, 83 ties** (helpful +7/−0, safety −0/+9, math +3/−8, code −0/+3)
+- exact two-sided McNemar p = 0.09873714670538902
+- verdict reason: 20 item-level regressions exceed the strict zero-regression promotion policy
+- Whetstone receipt: `sha256:47c9f717a04bda53f24d709049f8de6ce06eb694e3be280c51a48581cc9792ee`
+  — sanitized copy committed here as
+  [`receipts/vulcora_whetstone_pair_receipt.json`](receipts/vulcora_whetstone_pair_receipt.json)
+
+We independently re-derived the verdict from the pinned rows in `gate_eval_result.json`:
+by-domain gains/regressions/ties and the exact p-value match his receipt to the last digit.
+
+**Evidence boundary** (his, verified by us): this reproduces the label-level gate decision
+from the supplied rows. It does not rerun Gemma training or inference; no completions or
+private safety prompts were stored. Every published domain aggregate matches the 113 rows.
+
+**Hash-normalization note:** the receipt's `pair_sha256`
+(`6e9de5233ae170735b4a85115db2da57786f9f986c84e7f85b704eb82047c455`) is the SHA-256 of
+`gate_eval_result.json` as checked out with CRLF line endings (Windows, git `autocrlf`);
+the same blob with LF endings hashes to
+`441633b344b6f5d53d6aeaceb00f5fe96ee4560e5af9abdf431d3356aef1374d`. Both name the identical
+pinned content. Future receipts should pin the git blob hash or a canonical-JSON hash so the
+reference is platform-independent.
