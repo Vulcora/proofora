@@ -4,6 +4,15 @@ Machine-checked (Lean 4 + Mathlib) proofs of security-relevant linear algebra.
 Every theorem is `sorry`-free and depends only on Lean's three standard axioms
 `[propext, Classical.choice, Quot.sound]` (verifiable with `#print axioms`).
 
+## Where these proofs are used
+
+These theorems back the reversible-erasure and refuters-wall claims in **Vulcora**'s public
+AI-model detection record — the per-model dossiers at [vulcora.se/scan](https://vulcora.se/scan)
+and the scored capability record at [vulcora.se/coverage](https://vulcora.se/coverage). Each
+dossier's proof panel links back here at the commit you can re-verify (`lake build` + `#print
+axioms`). Scope, restated: these certify the erasure/reversibility linear algebra only — they
+make no claim about any detector.
+
 ## `Proofora/Excise.lean` — erasure-projector correctness
 
 Correctness of a rank-k weight-space **erasure** `I − R Rᵀ` — the kind of operator
