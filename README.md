@@ -54,6 +54,26 @@ gate exists to **BLOCK**. Deterministic recipe (`train_candidate.py`) + item-lev
 (`gate_eval_result.json`, booleans + labels only — no completions). See
 [`whetstone-pair/README.md`](whetstone-pair/README.md).
 
+## `presence-fpr-challenge/` — run our false-positive number yourself
+
+The false-positive rate of the presence read, made **runnable** — a direct answer to the
+critique that a "0 false positives" number is only honest if you can reproduce it on a pool
+*you* pick, not a cohort we planted. On the reference-**model**-free payload-elicitation channel
+(the one that makes a backdoored adapter speak its hidden payload as legible text), the held-out
+clean number is **0/68** (0/20 cross-recipe community finetunes — the same diverse finetunes that
+fire 210/210 on the absolute weight read). `verify-ours` recomputes the **0/20** from shipped raw
+LLM-judge verdicts in seconds — no models, no GPU; `score` runs the flag-rate on **your own clean
+adapters** through an external black-box probe (the script ships **no detector-method internals**);
+every run emits a `sha256`-signed replay record with a per-file byte manifest.
+
+Stated on the same line: this is a **precision-optimized** channel (pooled recall 0.38 / 0.46, not
+high-AUC), a point estimate of 0 is **not** a guarantee (the Wilson-95 upper bound — pooled ≤ 5.35%,
+cross-recipe ≤ 16.11% — is what governs deployment PPV, so at a 1% real-world base rate a fired flag
+is correct only single-digit-percent of the time), and the *separate* absolute weight-read presence
+channel stays **FPR = 1.0** (conceded, published). This certifies the false-positive arithmetic of a
+substitute confession channel — not a calibration of the failed one. stdlib-only Python, 3.8+. See
+[`presence-fpr-challenge/README.md`](presence-fpr-challenge/README.md).
+
 ## Build
 
 ```sh
